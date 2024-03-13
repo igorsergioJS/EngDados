@@ -1,0 +1,7 @@
+Discente realizador: Igor Sérgio de França Correia
+
+https://hub.docker.com/r/igorsergio/servidortcp  (docker pull igorsergio/servidortcp)
+
+https://hub.docker.com/r/igorsergio/clientetcp (docker pull igorsergio/clientetcp)
+
+Perfil: https://hub.docker.com/u/igorsergio
