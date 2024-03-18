@@ -1,0 +1,42 @@
+version: '3.9'
+
+services:
+
+  servidor:
+    container_name: servidor-container
+    image: igorsergio/servidortcp:v1
+    tty: true
+    ports:
+      - "8080:8080" 
+    networks:
+      - minha-rede
+
+  cliente1:
+    container_name: cliente1-container
+    depends_on:
+      - servidor
+    image: igorsergio/clientetcp:v1
+    tty: true
+    restart: always
+    networks:
+      - minha-rede
+    command: ["172.20.0.2"]
+
+  cliente2:
+    container_name: cliente2-container
+    depends_on:
+      - servidor
+    image: igorsergio/clientetcp:v1
+    tty: true
+    restart: always
+    networks:
+      - minha-rede
+    command: ["172.20.0.2"]
+
+networks:
+  minha-rede:
+    driver: bridge
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.20.0.0/24
